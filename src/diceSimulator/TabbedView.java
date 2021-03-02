@@ -41,11 +41,16 @@ public class TabbedView {
 		dicecard.add(new JButton("d20"));
 		dicecard.add(new JButton("d100"));
 
-		JPanel card2 = new JPanel();
-		card2.add(new JTextField("TextField", 20));
+		JPanel potioncard = new JPanel();
+		potioncard.add(new JTextField("TextField", 20));
+
+		potioncard.add(new JButton("potion of healing"));
+		potioncard.add(new JButton("potion of greater healing"));
+		potioncard.add(new JButton("potion of superior healing"));
+		potioncard.add(new JButton("potion of supreme healing"));
 
 		tabbedPane.addTab(DICEPANEL, dicecard);
-		tabbedPane.addTab(POTIONSPANEL, card2);
+		tabbedPane.addTab(POTIONSPANEL, potioncard);
 
 		pane.add(tabbedPane, BorderLayout.CENTER);
 	}

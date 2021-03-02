@@ -13,15 +13,15 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class TabbedView {
-	final static String BUTTONPANEL = "Tab with JButtons";
-	final static String TEXTPANEL = "Tab with JTextField";
+	final static String DICEPANEL = "Dice";
+	final static String POTIONSPANEL = "Potions";
 	final static int extraWindowWidth = 100;
 
 	public void addComponentToPane(Container pane) {
 		JTabbedPane tabbedPane = new JTabbedPane();
 
 		// Create the "cards".
-		JPanel card1 = new JPanel() {
+		JPanel dicecard = new JPanel() {
 			// Make the panel wider than it really needs, so
 			// the window's wide enough for the tabs to stay
 			// in one row.
@@ -32,15 +32,20 @@ public class TabbedView {
 				return size;
 			}
 		};
-		card1.add(new JButton("Button 1"));
-		card1.add(new JButton("Button 2"));
-		card1.add(new JButton("Button 3"));
+		dicecard.add(new JButton("d2"));
+		dicecard.add(new JButton("d4"));
+		dicecard.add(new JButton("d6"));
+		dicecard.add(new JButton("d8"));
+		dicecard.add(new JButton("d10"));
+		dicecard.add(new JButton("d12"));
+		dicecard.add(new JButton("d20"));
+		dicecard.add(new JButton("d100"));
 
 		JPanel card2 = new JPanel();
 		card2.add(new JTextField("TextField", 20));
 
-		tabbedPane.addTab(BUTTONPANEL, card1);
-		tabbedPane.addTab(TEXTPANEL, card2);
+		tabbedPane.addTab(DICEPANEL, dicecard);
+		tabbedPane.addTab(POTIONSPANEL, card2);
 
 		pane.add(tabbedPane, BorderLayout.CENTER);
 	}
@@ -51,7 +56,7 @@ public class TabbedView {
 	 */
 	private static void createAndShowGUI() {
 		// Create and set up the window.
-		JFrame frame = new JFrame("TabDemo");
+		JFrame frame = new JFrame("Dice Simulator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Create and set up the content pane.

@@ -4,11 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -19,9 +17,9 @@ public class TabbedView {
 
 	public void addComponentToPane(Container pane) {
 		JTabbedPane tabbedPane = new JTabbedPane();
-
 		// Create the "cards".
-		JPanel dicecard = new JPanel() {
+
+		JPanel dicepanel = new JPanel() {
 			// Make the panel wider than it really needs, so
 			// the window's wide enough for the tabs to stay
 			// in one row.
@@ -32,28 +30,21 @@ public class TabbedView {
 				return size;
 			}
 		};
-		dicecard.add(new JButton("d2"));
-		dicecard.add(new JButton("d4"));
-		dicecard.add(new JButton("d6"));
-		dicecard.add(new JButton("d8"));
-		dicecard.add(new JButton("d10"));
-		dicecard.add(new JButton("d12"));
-		dicecard.add(new JButton("d20"));
-		dicecard.add(new JButton("d100"));
 
-		JPanel potioncard = new JPanel();
-		potioncard.add(new JTextField("TextField", 20));
+		DiceCard dicecardcontent = new DiceCard();
+		dicepanel.add(dicecardcontent);
 
-		potioncard.add(new JButton("potion of healing"));
-		potioncard.add(new JButton("potion of greater healing"));
-		potioncard.add(new JButton("potion of superior healing"));
-		potioncard.add(new JButton("potion of supreme healing"));
+		JPanel potionspanel = new JPanel();
 
-		tabbedPane.addTab(DICEPANEL, dicecard);
-		tabbedPane.addTab(POTIONSPANEL, potioncard);
+		// PotionCard potionspanelcontent = new PotionCard();
+		// TODO create class PotionCard, same as DiceCard.
+
+		tabbedPane.addTab(DICEPANEL, dicepanel);
+		tabbedPane.addTab(POTIONSPANEL, potionspanel);
 
 		pane.add(tabbedPane, BorderLayout.CENTER);
-	}
+
+	};
 
 	/**
 	 * Create the GUI and show it. For thread safety, this method should be invoked
@@ -99,4 +90,4 @@ public class TabbedView {
 			}
 		});
 	}
-}
+};

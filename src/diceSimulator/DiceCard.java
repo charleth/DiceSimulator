@@ -44,18 +44,6 @@ public class DiceCard extends JPanel implements ActionListener {
 											// TextField vmtl nicht das richtige.
 	TextField modifier = new TextField(3); // soll durch Nutzer einstellbar sein
 
-	// weg
-	JPanel upperPanel1 = new JPanel();
-	JPanel upperPanel2 = new JPanel();
-	JPanel middlePanel = new JPanel();
-	JPanel lowerPanel1 = new JPanel();
-	JPanel lowerPanel2 = new JPanel();
-
-	JButton rollBtn = new JButton("Roll dice");
-	JLabel displayResult = new JLabel(" ");
-	TextField nbSide = new TextField(3);
-	TextField nbDice = new TextField(3);
-
 	public DiceCard() {
 		// building intermediate layouts
 
@@ -81,12 +69,14 @@ public class DiceCard extends JPanel implements ActionListener {
 		modifier.setText("0");
 
 		middlePanelRollDice.add(rollDiceBtn);
-		rollBtn.addActionListener(this);
+		rollDiceBtn.addActionListener(this);
 
-		lowerPanel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-		lowerPanel1.add(new JLabel("Result :"));
+		middlePanelTotalResult.setLayout(new FlowLayout(FlowLayout.LEFT));
+		middlePanelTotalResult.add(new JLabel("Result: "));
+		middlePanelTotalResult.add(TotalResult);
 
-		lowerPanel2.add(displayResult);
+		lowerPanelDetailResult.setLayout(new FlowLayout(FlowLayout.LEFT));
+		lowerPanelDetailResult.add(new JLabel("Filler Text for detailled Results!"));
 
 		// building final layout
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -102,29 +92,29 @@ public class DiceCard extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// emptying Result field when clicking on "Roll dice" button
-		displayResult.setText(" ");
+		TotalResult.setText(" ");
 
-		int nbDiceInt;
-		int nbSideInt;
+		int amountdiceInt;
+		int dicekindInt;
 		try {
-			nbDiceInt = Integer.parseInt(nbDice.getText());
-			nbSideInt = Integer.parseInt(nbSide.getText());
+			amountdiceInt = Integer.parseInt(amountdice.getText());
+			dicekindInt = Integer.parseInt(dicekind.getText());
 
 			// side number must be between 1 and 100
-			if (nbSideInt <= 0 || nbSideInt > 100)
+			if (dicekindInt <= 0 || dicekindInt > 100)
 				JOptionPane.showMessageDialog(null, "Error\nSide number must be between 1 and 100");
 			else {
 				// dice number must be between 1 and 20
-				if (nbDiceInt <= 0 || nbDiceInt > 20)
+				if (amountdiceInt <= 0 || amountdiceInt > 20)
 					JOptionPane.showMessageDialog(null, "Error\nOnly 1 to 20 dice can be rolled at once");
 				else {
 					// generating random numbers from nbSideInt
-					for (int i = 1; i <= nbDiceInt; i++) {
+					for (int i = 1; i <= amountdiceInt; i++) {
 						Random r = new Random();
 						int low = 1;
-						int high = nbSideInt + 1;
+						int high = dicekindInt + 1;
 						int result = r.nextInt(high - low) + low;
-						displayResult.setText(displayResult.getText() + " " + String.valueOf(result));
+						TotalResult.setText(TotalResult.getText() + " " + String.valueOf(result));
 					}
 				}
 			}
@@ -134,26 +124,7 @@ public class DiceCard extends JPanel implements ActionListener {
 		;
 	}
 };
-//
-//	
-//	
-//	
-//	
-//	
-//	JPanel upperDicePanel = new JPanel();
-//	JPanel 
-//	};
-//
-//
-//		};
-//		dicecard.add(new JButton("d2"));
-//		dicecard.add(new JButton("d4"));
-//		dicecard.add(new JButton("d6"));
-//		dicecard.add(new JButton("d8"));
-//		dicecard.add(new JButton("d10"));
-//		dicecard.add(new JButton("d12"));
-//		dicecard.add(new JButton("d20"));
-//		dicecard.add(new JButton("d100"));
+
 //
 //JPanel potioncard = new JPanel();
 //

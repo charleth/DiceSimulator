@@ -20,7 +20,10 @@ public class DiceCard extends JPanel implements ActionListener {
 	JPanel middlePanelTotalResult = new JPanel();
 	JPanel lowerPanelDetailResult = new JPanel();
 
+	// int dicekindInt;
+
 	JButton selectD2 = new JButton("coin");
+
 	JButton selectD4 = new JButton("d4");
 	JButton selectD6 = new JButton("d6");
 	JButton selectD8 = new JButton("d8");
@@ -32,30 +35,93 @@ public class DiceCard extends JPanel implements ActionListener {
 	JButton rollDiceBtn = new JButton("Roll dice");
 	JLabel TotalResult = new JLabel(" ");
 
-	// JLabel DetailResult1 = new JLabel("You have rolled" + amountdice + dicekind +
-	// " = " + rollresult);
-	// JLabel DetailResult2 = new JLabel("Modifier: " + prefix + modifier);
-	// JLabel DetailResult3 = new JLabel("Result: " + (for schleife; for each
-	// amountdice do randomdings) + prefix + modifier + " = " rollresult + (prefix +
-	// modifier))
-
 	TextField amountdice = new TextField(3); // soll durch Nutzer einstellbar sein
 	TextField dicekind = new TextField(3); // soll durch Anklicken der d2-d100 buttons ausgefüllt werden - vorher CTA -
 											// TextField vmtl nicht das richtige.
 	TextField modifier = new TextField(3); // soll durch Nutzer einstellbar sein
+
+	// JLabel DetailResult1 = new JLabel("You have rolled " + amountdice + " D" +
+	// dicekind);
+	// JLabel DetailResult2 = new JLabel("Modifier: " + prefix + modifier);
+	// JLabel DetailResult3 = new JLabel("Result: " + (for schleife; for each
+	// amountdice do randomdings) + prefix + modifier + " = " rollresult + (prefix +
+	// modifier))
 
 	public DiceCard() {
 		// building intermediate layouts
 
 		upperPanelAllDice.setLayout(new FlowLayout(FlowLayout.LEFT));
 		upperPanelAllDice.add(selectD2);
+		selectD2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dicekindInt = 2;
+				dicekind.setText("2");
+			}
+		});
+
 		upperPanelAllDice.add(selectD4);
+		selectD4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dicekindInt = 4;
+				dicekind.setText("4");
+			}
+		});
+
 		upperPanelAllDice.add(selectD6);
+		selectD4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dicekindInt = 6;
+				dicekind.setText("6");
+			}
+		});
+
 		upperPanelAllDice.add(selectD8);
+		selectD8.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dicekindInt = 8;
+				dicekind.setText("8");
+			}
+		});
+
 		upperPanelAllDice.add(selectD10);
+		selectD10.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dicekindInt = 10;
+				dicekind.setText("10");
+			}
+		});
+
 		upperPanelAllDice.add(selectD12);
+		selectD12.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dicekindInt = 12;
+				dicekind.setText("12");
+			}
+		});
+
 		upperPanelAllDice.add(selectD20);
+		selectD20.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dicekindInt = 20;
+				dicekind.setText("20");
+			}
+		});
+
 		upperPanelAllDice.add(selectD100);
+		selectD100.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dicekindInt = 100;
+				dicekind.setText("100");
+			}
+		});
 
 		middlePanelDiceAndMods.setLayout(new FlowLayout(FlowLayout.LEFT));
 		middlePanelDiceAndMods.add(new JLabel("Amount of dice: "));
@@ -63,7 +129,7 @@ public class DiceCard extends JPanel implements ActionListener {
 		amountdice.setText("1");
 		middlePanelDiceAndMods.add(new JLabel("Number of sides per die: "));
 		middlePanelDiceAndMods.add(dicekind);
-		dicekind.setText("20");
+		dicekind.getText();
 		middlePanelDiceAndMods.add(new JLabel("Modifier: "));
 		middlePanelDiceAndMods.add(modifier);
 		modifier.setText("0");
@@ -76,7 +142,9 @@ public class DiceCard extends JPanel implements ActionListener {
 		middlePanelTotalResult.add(TotalResult);
 
 		lowerPanelDetailResult.setLayout(new FlowLayout(FlowLayout.LEFT));
-		lowerPanelDetailResult.add(new JLabel("Filler Text for detailled Results!"));
+		lowerPanelDetailResult.add(new JLabel("Filler Text for detailed Results!"));
+		// lowerPanelDetailResult.add(new JLabel("You have rolled " + amountdiceInt + "
+		// D" + dicekindInt + " with a modifier of " + modifierInt)););
 
 		// building final layout
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -96,9 +164,11 @@ public class DiceCard extends JPanel implements ActionListener {
 
 		int amountdiceInt;
 		int dicekindInt;
+		int modifierInt;
 		try {
 			amountdiceInt = Integer.parseInt(amountdice.getText());
 			dicekindInt = Integer.parseInt(dicekind.getText());
+			modifierInt = Integer.parseInt(modifier.getText());
 
 			// side number must be between 1 and 100
 			if (dicekindInt <= 0 || dicekindInt > 100)
@@ -113,7 +183,7 @@ public class DiceCard extends JPanel implements ActionListener {
 						Random r = new Random();
 						int low = 1;
 						int high = dicekindInt + 1;
-						int result = r.nextInt(high - low) + low;
+						int result = r.nextInt(high - low) + low + modifierInt;
 						TotalResult.setText(TotalResult.getText() + " " + String.valueOf(result));
 					}
 				}

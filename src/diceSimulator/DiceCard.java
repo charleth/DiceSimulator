@@ -133,7 +133,7 @@ public class DiceCard extends JPanel implements ActionListener {
 		middlePanelDiceAndMods.add(new JLabel("Modifier: "));
 		middlePanelDiceAndMods.add(modifier);
 		modifier.setText("0");
-
+		;
 		middlePanelRollDice.add(rollDiceBtn);
 		rollDiceBtn.addActionListener(this);
 
@@ -194,13 +194,3 @@ public class DiceCard extends JPanel implements ActionListener {
 		;
 	}
 };
-
-//
-//JPanel potioncard = new JPanel();
-//
-//potioncard.add(new JTextField("TextField",20));
-//
-//potioncard.add(new JButton("potion of healing"));
-//potioncard.add(new JButton("potion of greater healing"));
-//potioncard.add(new JButton("potion of superior healing"));
-//potioncard.add(new JButton("potion of supreme healing"));

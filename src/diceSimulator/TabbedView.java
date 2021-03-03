@@ -36,7 +36,8 @@ public class TabbedView {
 
 		JPanel potionspanel = new JPanel();
 
-		// PotionCard potionspanelcontent = new PotionCard();
+		PotionsCard potionspanelcontent = new PotionsCard();
+		potionspanel.add(potionspanelcontent);
 		// TODO create class PotionCard, same as DiceCard.
 
 		tabbedPane.addTab(DICEPANEL, dicepanel);

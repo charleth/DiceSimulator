@@ -13,6 +13,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class TabbedView {
 	final static String DICEPANEL = "Dice";
 	final static String POTIONSPANEL = "Potions";
+	final static String WILDMAGIC = "Wild Magic";
 	final static int extraWindowWidth = 100;
 
 	public void addComponentToPane(Container pane) {
@@ -38,10 +39,15 @@ public class TabbedView {
 
 		PotionsCard potionspanelcontent = new PotionsCard();
 		potionspanel.add(potionspanelcontent);
-		// TODO create class PotionCard, same as DiceCard.
+
+		JPanel wildmagicpanel = new JPanel();
+
+		WildMagicCard wildmagicpanelcontent = new WildMagicCard();
+		wildmagicpanel.add(wildmagicpanelcontent);
 
 		tabbedPane.addTab(DICEPANEL, dicepanel);
 		tabbedPane.addTab(POTIONSPANEL, potionspanel);
+		tabbedPane.addTab(WILDMAGIC, wildmagicpanel);
 
 		pane.add(tabbedPane, BorderLayout.CENTER);
 

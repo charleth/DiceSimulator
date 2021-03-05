@@ -75,6 +75,49 @@ public class VampireDiceCard extends JPanel implements ActionListener {
 	JLabel youReRollLabel = new JLabel("You re-rolled:");
 
 	public VampireDiceCard() {
+		// preparing the layouts
+		upperPanel1v1.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		upperPanel1v2.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		upperPanel1v3.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		upperPanel2v1.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		upperPanel2v2.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		upperPanel2v3.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel1v1.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel1v2.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel1v3.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel1v4.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel2v1.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel2v2.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel3v1.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel3v2.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		middlePanel3v3.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		lowerPanel1.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		lowerPanel2.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		lowerPanel3.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		lowerPanel4.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		lowerPanel5.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		lowerPanel6.setLayout(new FlowLayout(FlowLayout.LEFT));
+
 		// building intermediate layouts
 
 		// prepPanel: Preparing the roll

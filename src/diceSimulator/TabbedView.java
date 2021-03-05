@@ -14,12 +14,14 @@ public class TabbedView {
 	final static String DICEPANEL = "Dice";
 	final static String POTIONSPANEL = "Potions";
 	final static String WILDMAGIC = "Wild Magic";
+	final static String SPELLS = "Spells";
+	final static String VAMPIRE = "Vampire";
 	final static int extraWindowWidth = 100;
 
 	public void addComponentToPane(Container pane) {
 		JTabbedPane tabbedPane = new JTabbedPane();
-    	// Create the "cards".
-    
+		// Create the "cards".
+
 		JPanel dicepanel = new JPanel() {
 			// Make the panel wider than it really needs, so
 			// the window's wide enough for the tabs to stay
@@ -45,9 +47,21 @@ public class TabbedView {
 		WildMagicCard wildmagicpanelcontent = new WildMagicCard();
 		wildmagicpanel.add(wildmagicpanelcontent);
 
+		JPanel spellscardpanel = new JPanel();
+
+		SpellsCard spellscardpanelcontent = new SpellsCard();
+		spellscardpanel.add(spellscardpanelcontent);
+
+		JPanel vampiredicecardpanel = new JPanel();
+
+		VampireDiceCard vampiredicecardpanelcontent = new VampireDiceCard();
+		vampiredicecardpanel.add(vampiredicecardpanelcontent);
+
 		tabbedPane.addTab(DICEPANEL, dicepanel);
 		tabbedPane.addTab(POTIONSPANEL, potionspanel);
 		tabbedPane.addTab(WILDMAGIC, wildmagicpanel);
+		tabbedPane.addTab(SPELLS, spellscardpanel);
+		tabbedPane.addTab(VAMPIRE, vampiredicecardpanel);
 
 		pane.add(tabbedPane, BorderLayout.CENTER);
 

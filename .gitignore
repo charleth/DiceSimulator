@@ -1,0 +1,7 @@
+# ignoring class files
+*.class
+
+# ignoring IDE related files (intellij)
+.idea/**
+*.iml
+

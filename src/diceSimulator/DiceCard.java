@@ -70,7 +70,7 @@ public class DiceCard extends JPanel implements ActionListener {
 		});
 
 		upperPanelAllDice.add(selectD6);
-		selectD4.addActionListener(new ActionListener() {
+		selectD6.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// dicekindInt = 6;
@@ -142,7 +142,13 @@ public class DiceCard extends JPanel implements ActionListener {
 		middlePanelTotalResult.add(TotalResult);
 
 		lowerPanelDetailResult.setLayout(new FlowLayout(FlowLayout.LEFT));
-		lowerPanelDetailResult.add(new JLabel("Filler Text for detailed Results!"));
+		lowerPanelDetailResult.add(new JLabel("Detailled results will appear here!"));
+		// ("You have rolled " + amountdice.getText() + " D" + dicekind.getText()
+		// + " with a modifier of " + modifier.getText()));// Filler
+		// Text
+		// for
+		// detailed
+		// Results!"));
 		// lowerPanelDetailResult.add(new JLabel("You have rolled " + amountdiceInt + "
 		// D" + dicekindInt + " with a modifier of " + modifierInt)););
 

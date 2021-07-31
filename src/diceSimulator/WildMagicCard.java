@@ -37,6 +37,16 @@ public class WildMagicCard extends JPanel implements ActionListener {
 	boolean TidesOfChaosStatus = false;
 	Random r = new Random();
 
+	public string getRandomEffect( string filename) {
+		List<String> result = Files.readAllLines(Paths.get(filename));
+		Random r = new Random();
+			int low = 1;
+			int high = (result.size() - 1) + 1;
+			int result2 = r.nextInt(high - low) + low;
+			SurgeEffect.setText(SurgeEffect.getText() + " " + String.valueOf(result2));
+					}
+	}
+
 	final JFileChooser fc = new JFileChooser();
 	int returnVal = fc.showOpenDialog(aComponent);
 
@@ -89,6 +99,7 @@ public class WildMagicCard extends JPanel implements ActionListener {
 
 		lowerPanelWM.setLayout(new FlowLayout(FlowLayout.LEFT));
 		lowerPanelWM.add(new JLabel("A random effect has occured!"));
+
 		lowerPanelWM.add(SurgeEffect);
 
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

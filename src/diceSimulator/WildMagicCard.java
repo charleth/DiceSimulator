@@ -12,11 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class WildMagicCard extends JPanel implements ActionListener {
+	JPanel upperPanel0WM = new JPanel();
 	JPanel upperPanel1WM = new JPanel();
 	JPanel upperPanel2WM = new JPanel();
 	JPanel middlePanel1WM = new JPanel();
 	JPanel middlePanel2WM = new JPanel();
 	JPanel lowerPanelWM = new JPanel();
+
+	JLabel SurgeEffectsSourceLabel = new JLabel("Current source for Surge Effects: ");
+	JLabel SurgeEffectsSourceLabelContent = new JLabel("Default source");
+	JButton ChangeSurgeEffectsSourceButton = new JButton ("Click here to change the source file");
+	// TODO hier Möglichkeit einfügen, entweder eigene Source für Surge Effects zu nutzen (CSV), oder 
+	// Extra class für importieren von csv Daten. 
 
 	JLabel TidesOfChaosLabel = new JLabel("Tides of Chaos active?");
 	JCheckBox TidesOfChaosBox = new JCheckBox();
@@ -30,7 +37,30 @@ public class WildMagicCard extends JPanel implements ActionListener {
 	boolean TidesOfChaosStatus = false;
 	Random r = new Random();
 
+	final JFileChooser fc = new JFileChooser();
+	int returnVal = fc.showOpenDialog(aComponent);
+
 	public WildMagicCard() {
+
+		upperpanel0WM.setLayout(new FlowLayout(FlowLayout.LEFT));
+		upperpanel0WM.add(SurgeEffectsSourceLabel);
+		upperpanel0WM.add(SurgeEffectsSourceLabelContent);
+		upperpanel0WM.add(ChangeSurgeEffectsSourceButton);
+		ChangeSurgeEffectsSourceButton.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == ChangeSurgeEffectsSourceButton) {
+					int returnVal = fc.showOpenDialog(WildMagicCard.this);
+
+					if (returnVal == JFileChooser.APPROVE_OPTION) {
+						File file = fc.getSelectedFile();
+						// TODO hier fehlt was? Datei öffnen und auslesen?
+					} else {
+						//TODO was dann?
+					}
+				}
+			}
+		})
 
 		upperPanel1WM.setLayout(new FlowLayout(FlowLayout.LEFT));
 		upperPanel1WM.add(TidesOfChaosLabel);

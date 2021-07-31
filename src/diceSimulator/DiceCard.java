@@ -36,7 +36,7 @@ public class DiceCard extends JPanel implements ActionListener {
 	JLabel TotalResult = new JLabel(" ");
 
 	TextField amountdice = new TextField(3); // soll durch Nutzer einstellbar sein
-	TextField dicekind = new TextField(3); // soll durch Anklicken der d2-d100 buttons ausgefüllt werden - vorher CTA -
+	TextField dicekind = new TextField(3); // soll durch Anklicken der d2-d100 buttons ausgefï¿½llt werden - vorher CTA -
 											// TextField vmtl nicht das richtige.
 	TextField modifier = new TextField(3); // soll durch Nutzer einstellbar sein
 
@@ -190,6 +190,7 @@ public class DiceCard extends JPanel implements ActionListener {
 						int low = 1;
 						int high = dicekindInt + 1;
 						int result = r.nextInt(high - low) + low + modifierInt;
+						// muss hier die nÃ¤chste if-Klausel rein bzgl if result <= 0, set valueOf(result) to 1? wie macht man das? 
 						TotalResult.setText(TotalResult.getText() + " " + String.valueOf(result));
 					}
 				}

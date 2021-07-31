@@ -39,6 +39,8 @@ public class DiceCard extends JPanel implements ActionListener {
 	TextField dicekind = new TextField(3); // soll durch Anklicken der d2-d100 buttons ausgef�llt werden - vorher CTA -
 											// TextField vmtl nicht das richtige.
 	TextField modifier = new TextField(3); // soll durch Nutzer einstellbar sein
+	JLabel disableNegativeResultLabel = new JLabel("Negative Roll Results Disabled: ");
+	JCheckBox disableNegativeResultCheckbox = new JCheckBox;
 
 	// JLabel DetailResult1 = new JLabel("You have rolled " + amountdice + " D" +
 	// dicekind);
@@ -134,6 +136,8 @@ public class DiceCard extends JPanel implements ActionListener {
 		middlePanelDiceAndMods.add(modifier);
 		modifier.setText("0");
 		;
+		middlePanelDiceAndMods.add(disableNegativeResultLabel);
+		middlePanelDiceAndMods.add(disableNegativeResultCheckbox);
 		middlePanelRollDice.add(rollDiceBtn);
 		rollDiceBtn.addActionListener(this);
 
@@ -190,7 +194,8 @@ public class DiceCard extends JPanel implements ActionListener {
 						int low = 1;
 						int high = dicekindInt + 1;
 						int result = r.nextInt(high - low) + low + modifierInt;
-						// muss hier die nächste if-Klausel rein bzgl if result <= 0, set valueOf(result) to 1? wie macht man das? 
+						if (disableNegativeResultCheckbox.getStateChange() == 1 && result <0)
+							result = 0; 
 						TotalResult.setText(TotalResult.getText() + " " + String.valueOf(result));
 					}
 				}
